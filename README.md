@@ -1,3 +1,9 @@
+Gotcha, Mini Userscript Pro it is 😄
+Here’s a solid `README.md` you can drop straight into that project:
+
+---
+
+````markdown
 # 🧩 Mini Userscript Pro
 
 **Mini Userscript Pro** is a lightweight, MV3-based userscript manager extension for Chromium browsers (Chrome / Brave / Edge).  
@@ -111,101 +117,84 @@ Exact permissions are defined in `manifest.json`.
 1. Clone or download this repo:
    ```bash
    git clone https://github.com/your-username/mini-userscript-pro.git
-2. Open Chrome / Brave / Edge → go to:
+````
 
-chrome://extensions
+2. Open **Chrome / Brave / Edge** → go to:
 
-
-3. Enable Developer mode (top right).
-
-4. Click “Load unpacked” and select the project folder (containing manifest.json).
-
+   ```
+   chrome://extensions
+   ```
+3. Enable **Developer mode** (top right).
+4. Click **“Load unpacked”** and select the project folder (containing `manifest.json`).
 5. You should now see the Mini Userscript Pro icon in your toolbar.
 
-🧪 Usage
-Add a New Script
+---
 
-Click the Mini Userscript Pro toolbar icon.
+## 🧪 Usage
 
-In the popup, click “New Script” (or similar button).
+### Add a New Script
 
-Fill in:
+1. Click the **Mini Userscript Pro** toolbar icon.
+2. In the popup, click **“New Script”** (or similar button).
+3. Fill in:
 
-Name
+   * Name
+   * Description
+   * Match pattern(s) (e.g. `*://example.com/*`)
+   * Code body
+4. Save. The script will now appear in the list and run on matching pages.
 
-Description
-
-Match pattern(s) (e.g. *://example.com/*)
-
-Code body
-
-Save. The script will now appear in the list and run on matching pages.
-
-Manage Scripts
+### Manage Scripts
 
 From the popup:
 
-Toggle script on/off globally
+* Toggle script on/off globally
+* Toggle script for the current domain (if per-domain controls are implemented)
+* Open editor to modify code
+* Delete script when no longer needed
 
-Toggle script for the current domain (if per-domain controls are implemented)
+### Use the “This Page” Inspector
 
-Open editor to modify code
+* Open the popup on any page
+* Go to **“This Page”** tab/section
+* See:
 
-Delete script when no longer needed
+  * Which scripts are active
+  * Quick toggles
+  * The in-page badge count
 
-Use the “This Page” Inspector
+---
 
-Open the popup on any page
+## 🧱 Development Notes
 
-Go to “This Page” tab/section
+* Built for **MV3** from the ground up
+* Designed to be framework-agnostic (plain JS/HTML/CSS)
+* Focus is on:
 
-See:
-
-Which scripts are active
-
-Quick toggles
-
-The in-page badge count
-
-🧱 Development Notes
-
-Built for MV3 from the ground up
-
-Designed to be framework-agnostic (plain JS/HTML/CSS)
-
-Focus is on:
-
-Simplicity
-
-Predictable behavior
-
-Easy extension
+  * Simplicity
+  * Predictable behavior
+  * Easy extension
 
 If you want to extend Mini Userscript Pro, good candidates are:
 
-Additional GM_* APIs (e.g. GM_xmlhttpRequest, clipboard helpers)
+* Additional `GM_*` APIs (e.g. `GM_xmlhttpRequest`, clipboard helpers)
+* Per-script sandboxing options
+* Backup / export & import of scripts
+* Sync across devices using `chrome.storage.sync`
 
-Per-script sandboxing options
+---
 
-Backup / export & import of scripts
-
-Sync across devices using chrome.storage.sync
-
-⚖️ Legal & Ethical Use
+## ⚖️ Legal & Ethical Use
 
 Mini Userscript Pro is intended for:
 
-Cosmetic tweaks
-
-Quality-of-life improvements
-
-Workflow automation on sites you’re allowed to interact with
+* Cosmetic tweaks
+* Quality-of-life improvements
+* Workflow automation on sites you’re allowed to interact with
 
 You are responsible for how you use it.
-Do not use this tool (or scripts built on top of it) to:
+**Do not** use this tool (or scripts built on top of it) to:
 
-Bypass paywalls, DRM, or subscription access controls
-
-Circumvent security mechanisms
-
-Violate website terms of service
+* Bypass paywalls, DRM, or subscription access controls
+* Circumvent security mechanisms
+* Violate website terms of service
