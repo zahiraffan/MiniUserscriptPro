@@ -111,7 +111,7 @@ Exact permissions are defined in `manifest.json`.
 
 1. Clone or download this repo:
    ```bash
-   git clone [https://github.com/your-username/mini-userscript-pro.git](https://github.com/zahiraffan/MiniUserscriptPro)
+   git clone https://github.com/zahiraffan/MiniUserscriptPro
 ````
 
 2. Open **Chrome / Brave / Edge** → go to:
