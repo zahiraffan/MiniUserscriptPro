@@ -1,8 +1,3 @@
-Gotcha, Mini Userscript Pro it is 😄
-Here’s a solid `README.md` you can drop straight into that project:
-
----
-
 ````markdown
 # 🧩 Mini Userscript Pro
 
@@ -116,7 +111,7 @@ Exact permissions are defined in `manifest.json`.
 
 1. Clone or download this repo:
    ```bash
-   git clone https://github.com/your-username/mini-userscript-pro.git
+   git clone [https://github.com/your-username/mini-userscript-pro.git](https://github.com/zahiraffan/MiniUserscriptPro)
 ````
 
 2. Open **Chrome / Brave / Edge** → go to:
