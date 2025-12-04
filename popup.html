@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mini Userscript Pro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body data-theme="light">
+  <div class="top-bar">
+    <div class="title">Mini Userscript Pro</div>
+    <div class="top-controls">
+      <div class="toggle-wrap">
+        <span>Invert theme</span>
+        <label class="switch">
+          <input type="checkbox" id="themeInvertToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="toggle-wrap">
+        <span>Safe mode</span>
+        <label class="switch">
+          <input type="checkbox" id="safeModeToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-tab="scripts">Scripts</button>
+    <button class="tab" data-tab="discover">Discover</button>
+    <button class="tab" data-tab="settings">Settings</button>
+  </div>
+  <div class="panels">
+    <div class="tab-panel active" data-panel="scripts">
+      <div class="panel-header">
+        <div class="panel-header-main">
+          <h2>Installed scripts</h2>
+          <div class="pill-row">
+            <span class="pill" id="enabledCount">Enabled: 0</span>
+            <span class="pill" id="disabledCount">Disabled: 0</span>
+          </div>
+        </div>
+        <div class="panel-header-side">
+          <input type="search" id="scriptSearch" class="search-input" placeholder="Search scripts…">
+        </div>
+      </div>
+      <div id="pageInspectorSection" class="section page-inspector">
+        <h3>This page</h3>
+        <div class="small" id="pageInspectorSummary">No active tab</div>
+        <div class="pill-row" style="margin-top:2px;">
+          <span class="pill" id="pageInspectorStatus">Loading…</span>
+        </div>
+        <div id="pageInspectorList" class="list small-list"></div>
+        <div class="panel-footer" style="margin-top:4px; justify-content:flex-start;">
+          <button id="newForThisSiteBtn">New script for this site</button>
+          <button id="pauseForThisSiteBtn">Pause scripts on this site</button>
+        </div>
+      </div>
+      <div id="scriptsList" class="list"></div>
+      <div class="panel-footer">
+        <button id="newScriptBtn">New script</button>
+        <button id="exportScriptsBtn">Export</button>
+        <button id="importScriptsBtn">Import</button>
+        <input type="file" id="importScriptsFile" accept="application/json" style="display:none">
+      </div>
+      <div id="editor" class="editor hidden">
+        <h3 id="editorTitle">New script</h3>
+        <label>Name
+          <input type="text" id="editName">
+        </label>
+        <label>@match (one per line)
+          <textarea id="editMatches"></textarea>
+        </label>
+        <label>@include (one per line)
+          <textarea id="editIncludes"></textarea>
+        </label>
+        <label>@exclude (one per line)
+          <textarea id="editExcludes"></textarea>
+        </label>
+        <label>Run at
+          <select id="editRunAt">
+            <option value="document-start">document-start</option>
+            <option value="document-end">document-end</option>
+            <option value="document-idle">document-idle</option>
+          </select>
+        </label>
+        <label>Code
+          <textarea id="editCode" class="code-area"></textarea>
+        </label>
+        <div class="editor-actions">
+          <button id="saveScriptBtn">Save</button>
+          <button id="cancelEditBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="discover">
+      <div class="panel-header">
+        <h2>Discover online</h2>
+        <div class="subtitle small">
+          Search Greasy Fork / OpenUserJS and install/update scripts.
+        </div>
+      </div>
+      <div class="section">
+        <div class="discover-controls">
+          <input type="search"
+                 id="discoverQuery"
+                 class="search-input"
+                 placeholder="Search userscripts…">
+          <select id="discoverSource" class="discover-source">
+            <option value="all">All sources</option>
+            <option value="greasyfork">Greasy Fork</option>
+            <option value="openuserjs">OpenUserJS</option>
+          </select>
+          <button id="discoverSearchBtn">Search</button>
+        </div>
+        <div id="discoverResults" class="list"></div>
+      </div>
+      <div class="section">
+        <h3>Featured scripts</h3>
+        <div class="small">One-click install of some handy built-in scripts.</div>
+        <div id="recipesList" class="list"></div>
+      </div>
+      <div class="section">
+        <h3>Install from URL</h3>
+        <div class="small">Paste a .user.js URL (Greasy Fork/OpenUserJS/other) to install.</div>
+        <button id="installFromUrlBtn">Install from URL</button>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="settings">
+      <div class="panel-header">
+        <h2>Settings</h2>
+      </div>
+      <div class="section">
+        <h3>Theme inspector</h3>
+        <div class="small" id="themeInspectorLine">
+          System: ? • Extension: ? • Mode: ?
+        </div>
+      </div>
+      <div class="section">
+        <h3>Full backup</h3>
+        <div class="small">
+          Export/import all scripts and settings in one JSON.
+        </div>
+        <div class="settings-actions">
+          <button id="exportProfileBtn">Export profile</button>
+          <button id="importProfileBtn">Import profile</button>
+          <input type="file" id="importProfileFile" accept="application/json" style="display:none">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

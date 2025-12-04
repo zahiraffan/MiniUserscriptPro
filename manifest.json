@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Mini Userscript Pro (Online v3)",
+  "version": "1.2.0",
+  "description": "Lightweight MV3 userscript manager with internal search and online search for Greasy Fork / OpenUserJS.",
+  "permissions": [
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://greasyfork.org/*",
+    "https://openuserjs.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Mini Userscript Pro",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content_script.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
